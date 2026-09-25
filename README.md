@@ -6,7 +6,7 @@ article by Blake Farman (Louisiana Tech University).
 
 The article is adapted, with modifications, from Dana C. Ernst's
 [*An Introduction to Proof via Inquiry-Based Learning*](https://github.com/dcernst/IBL-IntroToProof)
-(Skeleton Proofs 2.48, 2.49, 2.53, 2.54, 2.81–2.85). The wording and section
+(Skeleton Proofs 2.48, 2.49, 2.53, 2.54, 2.81–2.85, 4.3, 4.10, 4.26). The wording and section
 structure have been modified from the original.
 
 ## Building

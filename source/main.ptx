@@ -41,7 +41,8 @@
         Adapted, with modifications, from Dana C. Ernst's <em>An
         Introduction to Proof via Inquiry-Based Learning</em>
         (<url href="https://github.com/dcernst/IBL-IntroToProof">github.com/dcernst/IBL-IntroToProof</url>),
-        Skeleton Proofs 2.48, 2.49, 2.53, 2.54, 2.81<ndash/>2.85,
+        Skeleton Proofs 2.48, 2.49, 2.53, 2.54, 2.81<ndash/>2.85, 4.3,
+        4.10, 4.26,
         &#169; Dana C. Ernst. The wording and section structure here have
         been modified from the original. Ernst's text is licensed under a
         Creative Commons Attribution-ShareAlike 4.0 International License
@@ -578,6 +579,279 @@
           <m>(\forall x)(P(x) \implies Q(x))</m> by contradiction, you
           would begin by assuming that there exists <m>x \in U</m> such
           that <m>P(x)</m> and <m>\neg Q(x)</m>.
+        </p>
+      </note>
+    </section>
+
+    <section xml:id="sec-induction">
+      <title>Proof by Induction</title>
+
+      <p>
+        <term>Mathematical induction</term> is a proof technique for
+        statements of the form <m>(\forall n \in \N)P(n)</m>, or more
+        generally <m>(\forall n \in \Z)(n \geq a \implies P(n))</m>, where
+        <m>P(n)</m> is some predicate and <m>a \in \Z</m>. The
+        <term>Principle of Mathematical Induction</term> says that if
+        <m>P(1)</m> is true, and for all <m>k \geq 1</m>, <m>P(k)</m>
+        implies <m>P(k+1)</m>, then <m>P(n)</m> is true for all
+        <m>n \in \N</m>. Verifying the first hypothesis is called the
+        <term>base step</term> (or <term>base case</term>), and verifying
+        the second is called the <term>inductive step</term>. Note that
+        the inductive step is itself a proof of a quantified conditional,
+        so inside it you are filling in
+        <xref ref="assemblage-forall-conditional" text="title"/>.
+      </p>
+
+      <assemblage xml:id="assemblage-induction">
+        <title>Proof of <m>(\forall n \in \N)P(n)</m> by Induction</title>
+        <p>Here is the general structure for a proof by induction.</p>
+        <p><em>[State any upfront assumptions.]</em> We proceed by induction.</p>
+        <p>
+          <ol marker="(i)">
+            <li>
+              <p>
+                Base step: <em>[Verify that <m>P(1)</m> is true. This
+                often, but not always, amounts to plugging <m>n = 1</m>
+                into two sides of some claimed equation and verifying that
+                both sides are actually equal.]</em>
+              </p>
+            </li>
+            <li>
+              <p>
+                Inductive step: <em>[Your goal is to prove <q>For all
+                <m>k \in \N</m>, if <m>P(k)</m> is true, then
+                <m>P(k+1)</m> is true.</q>]</em> Let <m>k \in \N</m> and
+                assume that <m>P(k)</m> is true. <em>[Do something to
+                derive that <m>P(k+1)</m> is true.]</em> Therefore,
+                <m>P(k+1)</m> is true.
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>Thus, by induction, <m>P(n)</m> is true for all <m>n \in \N</m>.</p>
+      </assemblage>
+
+      <example xml:id="example-induction">
+        <statement>
+          <p>For all <m>n \in \N</m>, <m>3</m> divides <m>4^n - 1</m>.</p>
+        </statement>
+        <solution>
+          <p>We proceed by induction.</p>
+          <p>
+            <ol marker="(i)">
+              <li>
+                <p>
+                  Base step: When <m>n = 1</m>, <m>4^1 - 1 = 3</m>, which
+                  is divisible by <m>3</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Inductive step: Let <m>k \in \N</m> and assume that
+                  <m>3</m> divides <m>4^k - 1</m>. By definition, there is
+                  an integer <m>m</m> such that <m>4^k - 1 = 3m</m>. Then
+                </p>
+                <p>
+                  <md>
+                    <mrow>4^{k+1} - 1 \amp= 4 \cdot 4^k - 1</mrow>
+                    <mrow>\amp= 4(4^k - 1) + 3</mrow>
+                    <mrow>\amp= 4(3m) + 3</mrow>
+                    <mrow>\amp= 3(4m + 1).</mrow>
+                  </md>
+                </p>
+                <p>
+                  Since <m>4m + 1 \in \Z</m>, it follows that <m>3</m>
+                  divides <m>4^{k+1} - 1</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+          <p>
+            Thus, by induction, <m>3</m> divides <m>4^n - 1</m> for all
+            <m>n \in \N</m>.
+          </p>
+        </solution>
+      </example>
+
+      <p>
+        The base case need not be <m>n = 1</m>. To prove that <m>P(n)</m>
+        holds for all integers <m>n \geq a</m>, verify <m>P(a)</m> in the
+        base step and take <m>k \geq a</m> in the inductive step.
+      </p>
+
+      <assemblage xml:id="assemblage-induction-general">
+        <title>Proof of <m>(\forall n \in \Z)(n \geq a \implies P(n))</m> by Induction</title>
+        <p>
+          Here is the general structure for a proof by induction when the
+          base case does not necessarily involve <m>a = 1</m>.
+        </p>
+        <p><em>[State any upfront assumptions.]</em> We proceed by induction.</p>
+        <p>
+          <ol marker="(i)">
+            <li>
+              <p>
+                Base step: <em>[Verify that <m>P(a)</m> is true.]</em>
+              </p>
+            </li>
+            <li>
+              <p>
+                Inductive step: <em>[Your goal is to prove <q>For all
+                <m>k \geq a</m>, if <m>P(k)</m> is true, then
+                <m>P(k+1)</m> is true.</q>]</em> Let <m>k \geq a</m> be an
+                integer and assume that <m>P(k)</m> is true. <em>[Do
+                something to derive that <m>P(k+1)</m> is true.]</em>
+                Therefore, <m>P(k+1)</m> is true.
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          Thus, by induction, <m>P(n)</m> is true for all integers
+          <m>n \geq a</m>.
+        </p>
+      </assemblage>
+
+      <example xml:id="example-induction-general">
+        <statement>
+          <p>For all integers <m>n \geq 4</m>, <m>2^n \lt n!</m>.</p>
+        </statement>
+        <solution>
+          <p>We proceed by induction.</p>
+          <p>
+            <ol marker="(i)">
+              <li>
+                <p>
+                  Base step: When <m>n = 4</m>, <m>2^4 = 16 \lt 24 = 4!</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Inductive step: Let <m>k \geq 4</m> be an integer and
+                  assume that <m>2^k \lt k!</m>. Then
+                </p>
+                <p>
+                  <md>
+                    <mrow>2^{k+1} = 2 \cdot 2^k \lt 2 \cdot k! \leq (k+1) \cdot k! = (k+1)!,</mrow>
+                  </md>
+                </p>
+                <p>
+                  where the last inequality uses <m>2 \leq k + 1</m>, which
+                  holds since <m>k \geq 4</m>. Therefore,
+                  <m>2^{k+1} \lt (k+1)!</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+          <p>
+            Thus, by induction, <m>2^n \lt n!</m> for all integers
+            <m>n \geq 4</m>.
+          </p>
+        </solution>
+      </example>
+
+      <p>
+        There is another formulation of induction, called
+        <term>complete induction</term> (or <term>strong induction</term>),
+        in which the inductive step assumes not just <m>P(k)</m> but all of
+        <m>P(1), P(2), \ldots, P(k)</m>. Complete induction is not more
+        powerful than ordinary induction, but it is the right tool when
+        reaching <m>P(k+1)</m> requires more than the single preceding
+        case<mdash/>for instance, when <m>P(k+1)</m> depends on both
+        <m>P(k)</m> and <m>P(k-1)</m>. In such situations, you will
+        typically need to verify more than one case in the base step; the
+        number of base cases depends on how far the inductive step
+        <q>looks back.</q>
+      </p>
+
+      <assemblage xml:id="assemblage-complete-induction">
+        <title>Proof of <m>(\forall n \in \N)P(n)</m> by Complete Induction</title>
+        <p>Here is the general structure for a proof by complete induction.</p>
+        <p><em>[State any upfront assumptions.]</em> We proceed by induction.</p>
+        <p>
+          <ol marker="(i)">
+            <li>
+              <p>
+                Base step: <em>[Verify that <m>P(1)</m> is true. Depending
+                on the statement, you may also need to verify that
+                <m>P(k)</m> is true for other specific values of
+                <m>k</m>.]</em>
+              </p>
+            </li>
+            <li>
+              <p>
+                Inductive step: <em>[Your goal is to prove <q>For all
+                <m>k \in \N</m>, if <m>P(j)</m> is true for all
+                <m>j \in \N</m> such that <m>j \leq k</m>, then
+                <m>P(k+1)</m> is true.</q>]</em> Let <m>k \in \N</m>.
+                Suppose <m>P(j)</m> is true for all <m>j \leq k</m>.
+                <em>[Do something to derive that <m>P(k+1)</m> is
+                true.]</em> Therefore, <m>P(k+1)</m> is true.
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          Thus, by complete induction, <m>P(n)</m> is true for all
+          <m>n \in \N</m>.
+        </p>
+      </assemblage>
+
+      <example xml:id="example-complete-induction">
+        <statement>
+          <p>
+            Define a sequence by <m>a_1 = 1</m>, <m>a_2 = 3</m>, and
+            <m>a_n = 3a_{n-1} - 2a_{n-2}</m> for all <m>n \geq 3</m>. Then
+            <m>a_n = 2^n - 1</m> for all <m>n \in \N</m>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We proceed by induction. Since the recurrence for <m>a_{k+1}</m>
+            involves both <m>a_k</m> and <m>a_{k-1}</m>, we need two base
+            cases.
+          </p>
+          <p>
+            <ol marker="(i)">
+              <li>
+                <p>
+                  Base step: <m>a_1 = 1 = 2^1 - 1</m> and
+                  <m>a_2 = 3 = 2^2 - 1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Inductive step: Let <m>k \geq 2</m> and suppose
+                  <m>a_j = 2^j - 1</m> for all <m>j \leq k</m>. Then, since
+                  <m>k + 1 \geq 3</m>, the recurrence gives
+                </p>
+                <p>
+                  <md>
+                    <mrow>a_{k+1} \amp= 3a_k - 2a_{k-1}</mrow>
+                    <mrow>\amp= 3(2^k - 1) - 2(2^{k-1} - 1)</mrow>
+                    <mrow>\amp= 3 \cdot 2^k - 3 - 2^k + 2</mrow>
+                    <mrow>\amp= 2 \cdot 2^k - 1</mrow>
+                    <mrow>\amp= 2^{k+1} - 1.</mrow>
+                  </md>
+                </p>
+                <p>Therefore, <m>a_{k+1} = 2^{k+1} - 1</m>.</p>
+              </li>
+            </ol>
+          </p>
+          <p>
+            Thus, by complete induction, <m>a_n = 2^n - 1</m> for all
+            <m>n \in \N</m>.
+          </p>
+        </solution>
+      </example>
+
+      <note xml:id="note-complete-induction-base">
+        <p>
+          In <xref ref="example-complete-induction"/>, the inductive step
+          starts at <m>k \geq 2</m> rather than <m>k \geq 1</m>, because
+          the recurrence only applies once there are two previous terms.
+          The case <m>k = 1</m> (that is, <m>P(2)</m>) is covered by the
+          base step instead. Forgetting to check <m>a_2</m> separately is
+          the most common mistake in this kind of argument.
         </p>
       </note>
     </section>
