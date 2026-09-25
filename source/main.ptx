@@ -1,0 +1,587 @@
+<?xml version='1.0' encoding='utf-8'?>
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <docinfo>
+    <document-id>farman-SkeletonProofs</document-id>
+    <directories external="../assets"/>
+    <macros>
+      \newcommand{\N}{\mathbb{N}}
+      \newcommand{\Z}{\mathbb{Z}}
+      \newcommand{\Q}{\mathbb{Q}}
+      \newcommand{\R}{\mathbb{R}}
+      \newcommand{\abs}[1]{\lvert #1 \rvert}
+    </macros>
+  </docinfo>
+
+  <article xml:id="skeleton-proofs">
+    <title>Skeleton Proofs</title>
+
+    <frontmatter>
+      <bibinfo>
+        <author>
+          <personname>Blake Farman</personname>
+          <institution>Louisiana Tech University</institution>
+        </author>
+      </bibinfo>
+
+      <titlepage>
+        <titlepage-items/>
+      </titlepage>
+
+      <abstract>
+        <p>
+          Skeleton proofs for the standard proof techniques used in an
+          introduction to proofs course, with worked examples.
+        </p>
+      </abstract>
+    </frontmatter>
+
+    <introduction xml:id="intro">
+      <p>
+        Adapted, with modifications, from Dana C. Ernst's <em>An
+        Introduction to Proof via Inquiry-Based Learning</em>
+        (<url href="https://github.com/dcernst/IBL-IntroToProof">github.com/dcernst/IBL-IntroToProof</url>),
+        Skeleton Proofs 2.48, 2.49, 2.53, 2.54, 2.81<ndash/>2.85,
+        &#169; Dana C. Ernst. The wording and section structure here have
+        been modified from the original. Ernst's text is licensed under a
+        Creative Commons Attribution-ShareAlike 4.0 International License
+        (<url href="https://creativecommons.org/licenses/by-sa/4.0/">creativecommons.org/licenses/by-sa/4.0</url>),
+        and, per the terms of that license, so is this derivative document.
+      </p>
+
+      <p>
+        The skeleton proofs below give the basic structure of the most
+        common proof strategies for a conditional statement
+        <m>A \implies B</m> (or a more general statement <m>P</m>),
+        together with the quantified versions you will use most often.
+        Filling in a skeleton is not, by itself, a proof<mdash/>the middle
+        of each proof is where the actual mathematical argument goes<mdash/>
+        but recognizing which skeleton you are filling in will help you
+        organize your writing and will make it easier for a reader to
+        follow your argument.
+      </p>
+    </introduction>
+
+    <section xml:id="sec-direct">
+      <title>Direct Proof</title>
+
+      <p>
+        Each of the proofs you have produced so far had the same format,
+        which we refer to as a <term>direct proof</term>.
+      </p>
+
+      <assemblage xml:id="assemblage-direct">
+        <title>Proof of <m>A \implies B</m> by Direct Proof</title>
+        <p>
+          If you want to prove the implication <m>A \implies B</m> via a
+          direct proof, then the structure of the proof is as follows.
+        </p>
+        <p><em>[State any upfront assumptions.]</em> Assume <m>A</m>.</p>
+        <p>
+          <m>\ldots</m> <em>[Use definitions and known results to derive
+          <m>B</m>]</em> <m>\ldots</m>
+        </p>
+        <p>Therefore, <m>B</m>.</p>
+      </assemblage>
+
+      <example xml:id="example-direct">
+        <statement>
+          <p>If <m>n</m> is an even integer, then <m>n^2</m> is even.</p>
+        </statement>
+        <solution>
+          <p>
+            Assume <m>n</m> is even. By definition, there is an integer
+            <m>k</m> such that <m>n = 2k</m>. Then
+          </p>
+          <p><md><mrow>n^2 = (2k)^2 = 4k^2 = 2(2k^2).</mrow></md></p>
+          <p>
+            Since <m>2k^2 \in \Z</m>, it follows that <m>n^2</m> is even.
+          </p>
+        </solution>
+      </example>
+    </section>
+
+    <section xml:id="sec-contraposition">
+      <title>Proof by Contraposition</title>
+
+      <p>
+        If you want to prove a conditional proposition, you can prove its
+        contrapositive instead. This approach is called a
+        <term>proof by contraposition</term>.
+      </p>
+
+      <assemblage xml:id="assemblage-contrapositive">
+        <title>Proof of <m>A \implies B</m> by Contraposition</title>
+        <p>
+          If you want to prove the implication <m>A \implies B</m> by
+          proving its contrapositive <m>\neg B \implies \neg A</m> instead,
+          then the structure of the proof is as follows.
+        </p>
+        <p>
+          <em>[State any upfront assumptions.]</em> We will utilize a proof
+          by contraposition. Assume <m>\neg B</m>.
+        </p>
+        <p>
+          <m>\ldots</m> <em>[Use definitions and known results to derive
+          <m>\neg A</m>]</em> <m>\ldots</m>
+        </p>
+        <p>
+          Therefore, <m>\neg A</m>. We have proved the contrapositive, and
+          hence if <m>A</m>, then <m>B</m>.
+        </p>
+      </assemblage>
+
+      <example xml:id="example-contrapositive">
+        <statement>
+          <p>Let <m>n \in \Z</m>. If <m>n^2</m> is odd, then <m>n</m> is odd.</p>
+        </statement>
+        <solution>
+          <p>
+            We will utilize a proof by contraposition. Assume <m>n</m> is
+            even. By definition, there is an integer <m>k</m> such that
+            <m>n = 2k</m>. Then
+          </p>
+          <p><md><mrow>n^2 = (2k)^2 = 2(2k^2),</mrow></md></p>
+          <p>
+            so <m>n^2</m> is even, i.e., <m>n^2</m> is not odd. We have
+            proved the contrapositive, and hence if <m>n^2</m> is odd, then
+            <m>n</m> is odd.
+          </p>
+        </solution>
+      </example>
+    </section>
+
+    <section xml:id="sec-contradiction">
+      <title>Proof by Contradiction</title>
+
+      <p>
+        Suppose that we want to prove some proposition <m>P</m> (which
+        might be something like <m>A \implies B</m> or even more
+        complicated). One approach, called <term>proof by
+        contradiction</term>, is to assume <m>\neg P</m> and then logically
+        deduce a contradiction of the form <m>Q \wedge \neg Q</m>, where
+        <m>Q</m> is some proposition. Since this is absurd, the assumption
+        <m>\neg P</m> must have been false, so <m>P</m> is true. The tricky
+        part about a proof by contradiction is that it is not usually
+        obvious what the statement <m>Q</m> should be.
+      </p>
+
+      <assemblage xml:id="assemblage-contradiction">
+        <title>Proof of <m>P</m> by Contradiction</title>
+        <p>
+          Here is what the general structure for a proof by contradiction
+          looks like if we are trying to prove the proposition <m>P</m>.
+        </p>
+        <p>
+          <em>[State any upfront assumptions.]</em> For sake of a
+          contradiction, assume <m>\neg P</m>.
+        </p>
+        <p>
+          <m>\ldots</m> <em>[Use definitions and known results to derive
+          some <m>Q</m> and its negation <m>\neg Q</m>.]</em> <m>\ldots</m>
+        </p>
+        <p>This is a contradiction. Therefore, <m>P</m>.</p>
+      </assemblage>
+
+      <example xml:id="example-contradiction-largest-even">
+        <statement>
+          <p>There is no largest even integer.</p>
+        </statement>
+        <solution>
+          <p>
+            For sake of a contradiction, assume that there is a largest
+            even integer, say <m>m</m>. Since <m>m</m> is even, there is an
+            integer <m>k</m> such that <m>m = 2k</m>, and so
+          </p>
+          <p><md><mrow>m + 2 = 2k + 2 = 2(k+1)</mrow></md></p>
+          <p>
+            is also even. Moreover, <m>m + 2 &gt; m</m>. This contradicts
+            the assumption that <m>m</m> is the largest even integer.
+            Therefore, there is no largest even integer.
+          </p>
+        </solution>
+      </example>
+
+      <p>
+        Proof by contradiction can be useful for proving statements of the
+        form <m>A \implies B</m>, where <m>\neg B</m> is easier to
+        <q>get your hands on,</q> because
+        <m>\neg(A \implies B)</m> is logically equivalent to
+        <m>A \wedge \neg B</m>.
+      </p>
+
+      <assemblage xml:id="assemblage-conditional-contradiction">
+        <title>Proof of <m>A \implies B</m> by Contradiction</title>
+        <p>
+          If you want to prove the implication <m>A \implies B</m> via a
+          proof by contradiction, then the structure of the proof is as
+          follows.
+        </p>
+        <p>
+          <em>[State any upfront assumptions.]</em> For sake of a
+          contradiction, assume <m>A</m> and <m>\neg B</m>.
+        </p>
+        <p>
+          <m>\ldots</m> <em>[Use definitions and known results to derive
+          some <m>Q</m> and its negation <m>\neg Q</m>.]</em> <m>\ldots</m>
+        </p>
+        <p>This is a contradiction. Therefore, if <m>A</m>, then <m>B</m>.</p>
+      </assemblage>
+
+      <example xml:id="example-contradiction-irrational">
+        <statement>
+          <p>
+            Let <m>x</m> be a rational number and let <m>y</m> be an
+            irrational number. Then <m>x + y</m> is irrational.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            For sake of a contradiction, assume <m>x</m> is rational,
+            <m>y</m> is irrational, and <m>x + y</m> is rational. Since the
+            difference of two rational numbers is rational,
+          </p>
+          <p><md><mrow>y = (x+y) - x</mrow></md></p>
+          <p>
+            is rational. This contradicts the assumption that <m>y</m> is
+            irrational. Therefore, if <m>x</m> is rational and <m>y</m> is
+            irrational, then <m>x+y</m> is irrational.
+          </p>
+        </solution>
+      </example>
+
+      <note xml:id="note-elegance">
+        <p>
+          A direct proof is usually considered more elegant than a proof by
+          contradiction, and you should generally prefer one when it is
+          available. A telltale sign that a proof by contradiction was
+          unnecessary is when, after assuming <m>A</m> and <m>\neg B</m>,
+          you derive <m>\neg B</m> and <m>B</m> themselves as your
+          contradiction<mdash/>that argument can usually be rewritten as a
+          direct proof of <m>A \implies B</m>. On the other hand, if the
+          contradiction you reach involves some <m>Q</m> genuinely
+          different from <m>B</m>, a proof by contradiction was likely the
+          right tool.
+        </p>
+      </note>
+
+      <example xml:id="example-unnecessary-contradiction">
+        <title>An Unnecessary Proof by Contradiction</title>
+        <statement>
+          <p>If <m>n</m> is an even integer, then <m>n^2</m> is even.</p>
+        </statement>
+        <solution>
+          <p>
+            For sake of a contradiction, assume <m>n</m> is even and
+            <m>n^2</m> is odd. By definition, there is an integer <m>k</m>
+            such that <m>n = 2k</m>. Then
+          </p>
+          <p><md><mrow>n^2 = (2k)^2 = 4k^2 = 2(2k^2),</mrow></md></p>
+          <p>
+            so <m>n^2</m> is even. This contradicts the assumption that
+            <m>n^2</m> is odd. Therefore, if <m>n</m> is even, then
+            <m>n^2</m> is even.
+          </p>
+        </solution>
+      </example>
+
+      <p>
+        Notice that the assumption <m>\neg B</m> (that <m>n^2</m> is odd)
+        was never actually used<mdash/>the computation
+        <m>n^2 = 2(2k^2)</m> shows <m>n^2</m> is even using only <m>A</m>
+        (that <m>n</m> is even). The contradiction we reached is exactly
+        <m>B</m> and <m>\neg B</m>, which is the telltale sign from
+        <xref ref="note-elegance"/> that a direct proof was available all
+        along. To transform this into a direct proof, delete the
+        <q>for sake of a contradiction</q> framing and the
+        assumption <m>\neg B</m>, and simply conclude with the fact that
+        was derived:
+      </p>
+
+      <p>
+        <em>Proof.</em> Assume <m>n</m> is even. By definition, there is an
+        integer <m>k</m> such that <m>n = 2k</m>. Then
+      </p>
+      <p><md><mrow>n^2 = (2k)^2 = 4k^2 = 2(2k^2),</mrow></md></p>
+      <p>so <m>n^2</m> is even.</p>
+
+      <p>
+        This is precisely the direct proof given in
+        <xref ref="example-direct"/>.
+      </p>
+    </section>
+
+    <section xml:id="sec-biconditionals">
+      <title>Proving Biconditionals</title>
+
+      <p>
+        If we want to prove a biconditional of the form <m>A \iff B</m>, we
+        need to prove both <m>A \implies B</m> and <m>B \implies A</m>. You
+        should always make it clear to the reader when you are proving each
+        implication. One approach is to label each subproof with
+        <q>(<m>\implies</m>)</q> and
+        <q>(<m>\Longleftarrow</m>)</q> (including the parentheses),
+        respectively. Occasionally, you will discover that the proof of
+        one implication is exactly the reverse of the proof of the other
+        implication. If this happens to be the case, you may skip writing
+        two subproofs and simply write a single proof that chains together
+        each step using biconditionals. Such proofs will almost always be
+        shorter, but can be challenging to write in an eloquent way. It is
+        always a safe bet to write a separate subproof for each
+        implication.
+      </p>
+
+      <p>
+        When proving each implication of a biconditional, you may choose
+        to utilize a direct proof, a proof by contraposition, or a proof by
+        contradiction. For example, you could prove the first implication
+        using a proof by contradiction and a direct proof for the second
+        implication.
+      </p>
+
+      <example xml:id="example-biconditional">
+        <statement>
+          <p>Let <m>n \in \Z</m>. Then <m>n</m> is even if and only if <m>n^2</m> is even.</p>
+        </statement>
+        <solution>
+          <p>
+            (<m>\implies</m>) This is exactly the direct proof of
+            <xref ref="example-direct"/>: if <m>n</m> is even, then
+            <m>n^2</m> is even.
+          </p>
+          <p>
+            (<m>\Longleftarrow</m>) This is exactly the contrapositive
+            proof of <xref ref="example-contrapositive"/>: if <m>n^2</m> is
+            odd, then <m>n</m> is odd, and this is equivalent to its
+            contrapositive, if <m>n^2</m> is even, then <m>n</m> is even.
+          </p>
+          <p>
+            Since both implications hold, <m>n</m> is even if and only if
+            <m>n^2</m> is even.
+          </p>
+        </solution>
+      </example>
+    </section>
+
+    <section xml:id="sec-quantified">
+      <title>Quantified Statements</title>
+
+      <p>
+        At this point, we should be able to use our understanding of
+        quantification to construct counterexamples to complicated false
+        propositions and proofs of complicated true propositions. Here are
+        some general proof structures for various logical forms. Assume
+        <m>U</m> is the universe of discourse.
+      </p>
+
+      <assemblage xml:id="assemblage-forall-direct">
+        <title>Direct Proof of <m>(\forall x)P(x)</m></title>
+        <p>
+          Here is the general structure for a direct proof of the
+          proposition <m>(\forall x)P(x)</m>.
+        </p>
+        <p><em>[State any upfront assumptions.]</em> Let <m>x \in U</m>.</p>
+        <p>
+          <m>\ldots</m> <em>[Use definitions and known results.]</em>
+          <m>\ldots</m>
+        </p>
+        <p>
+          Therefore, <m>P(x)</m> is true. Since <m>x</m> was arbitrary, for
+          all <m>x</m>, <m>P(x)</m>.
+        </p>
+      </assemblage>
+
+      <example xml:id="example-forall-direct">
+        <statement>
+          <p>For every integer <m>n</m>, <m>n^2 - n</m> is even.</p>
+        </statement>
+        <solution>
+          <p>
+            Let <m>n \in \Z</m>. Note that <m>n^2 - n = n(n-1)</m> is a
+            product of two consecutive integers, so one of <m>n</m> and
+            <m>n - 1</m> is even; write that even factor as <m>2k</m> for
+            some <m>k \in \Z</m>. Then <m>n(n-1) = 2k \cdot (\text{the
+            other factor})</m>, which is twice an integer. Therefore,
+            <m>n^2 - n</m> is even. Since <m>n</m> was arbitrary, for all
+            <m>n \in \Z</m>, <m>n^2 - n</m> is even.
+          </p>
+        </solution>
+      </example>
+
+      <p>
+        Combining <xref ref="assemblage-forall-direct" text="title"/> with
+        <xref ref="assemblage-direct" text="title"/>, we obtain the following skeleton
+        proof.
+      </p>
+
+      <assemblage xml:id="assemblage-forall-conditional">
+        <title>Proof of <m>(\forall x)(A(x) \implies B(x))</m></title>
+        <p>
+          Below is the general structure for a direct proof of the
+          proposition <m>(\forall x)(A(x) \implies B(x))</m>.
+        </p>
+        <p>
+          <em>[State any upfront assumptions.]</em> Let <m>x \in U</m>.
+          Assume <m>A(x)</m>.
+        </p>
+        <p>
+          <m>\ldots</m> <em>[Use definitions and known results to derive
+          <m>B(x)</m>]</em> <m>\ldots</m>
+        </p>
+        <p>Therefore, <m>B(x)</m>.</p>
+      </assemblage>
+
+      <example xml:id="example-forall-conditional">
+        <statement>
+          <p>For every integer <m>n</m>, if <m>6</m> divides <m>n</m>, then <m>3</m> divides <m>n</m>.</p>
+        </statement>
+        <solution>
+          <p>
+            Let <m>n \in \Z</m>. Assume <m>6</m> divides <m>n</m>. By
+            definition, there is an integer <m>k</m> such that
+            <m>n = 6k</m>. Then
+          </p>
+          <p><md><mrow>n = 6k = 3(2k),</mrow></md></p>
+          <p>
+            and since <m>2k \in \Z</m>, it follows that <m>3</m> divides
+            <m>n</m>.
+          </p>
+        </solution>
+      </example>
+
+      <assemblage xml:id="assemblage-forall-contradiction">
+        <title>Proof of <m>(\forall x)P(x)</m> by Contradiction</title>
+        <p>
+          Here is the general structure for a proof of the proposition
+          <m>(\forall x)P(x)</m> via contradiction.
+        </p>
+        <p>
+          <em>[State any upfront assumptions.]</em> For sake of a
+          contradiction, assume that there exists <m>x \in U</m> such that
+          <m>\neg P(x)</m>.
+        </p>
+        <p>
+          <m>\ldots</m> <em>[Do something to derive a contradiction.]</em>
+          <m>\ldots</m>
+        </p>
+        <p>
+          This is a contradiction. Therefore, for all <m>x</m>, <m>P(x)</m>
+          is true.
+        </p>
+      </assemblage>
+
+      <example xml:id="example-forall-contradiction">
+        <statement>
+          <p>For every integer <m>n</m>, <m>n^2 \neq 2</m>.</p>
+        </statement>
+        <solution>
+          <p>
+            For sake of a contradiction, assume that there exists
+            <m>n \in \Z</m> such that <m>n^2 = 2</m>. Since
+            <m>1^2 = 1 &lt; 2 &lt; 4 = 2^2</m>, we have
+            <m>1 &lt; \abs{n} &lt; 2</m>. But there is no integer strictly
+            between <m>1</m> and <m>2</m>. This is a contradiction.
+            Therefore, for all <m>n \in \Z</m>, <m>n^2 \neq 2</m>.
+          </p>
+        </solution>
+      </example>
+
+      <assemblage xml:id="assemblage-exists-direct">
+        <title>Direct Proof of <m>(\exists x)P(x)</m></title>
+        <p>
+          Here is the general structure for a direct proof of the
+          proposition <m>(\exists x)P(x)</m>.
+        </p>
+        <p><em>[State any upfront assumptions.]</em> <m>\ldots</m></p>
+        <p>
+          <m>\ldots</m> <em>[Use definitions, axioms, and previous results
+          to deduce that an <m>x</m> exists for which <m>P(x)</m> is true;
+          or if you have an <m>x</m> that works, just verify that it
+          does.]</em> <m>\ldots</m>
+        </p>
+        <p>Therefore, there exists <m>x \in U</m> such that <m>P(x)</m>.</p>
+      </assemblage>
+
+      <example xml:id="example-exists-direct">
+        <statement>
+          <p>There exists an even prime number.</p>
+        </statement>
+        <solution>
+          <p>
+            The number <m>2</m> is prime, and <m>2 = 2 \cdot 1</m> is even.
+            Therefore, there exists an even prime number.
+          </p>
+        </solution>
+      </example>
+
+      <assemblage xml:id="assemblage-exists-contradiction">
+        <title>Proof of <m>(\exists x)P(x)</m> by Contradiction</title>
+        <p>
+          Below is the general structure for a proof of the proposition
+          <m>(\exists x)P(x)</m> via contradiction.
+        </p>
+        <p>
+          <em>[State any upfront assumptions.]</em> For sake of a
+          contradiction, assume that for all <m>x \in U</m>,
+          <m>\neg P(x)</m>.
+        </p>
+        <p>
+          <m>\ldots</m> <em>[Do something to derive a contradiction.]</em>
+          <m>\ldots</m>
+        </p>
+        <p>
+          This is a contradiction. Therefore, there exists <m>x \in U</m>
+          such that <m>P(x)</m>.
+        </p>
+      </assemblage>
+
+      <example xml:id="example-exists-contradiction">
+        <statement>
+          <p>
+            Among any three consecutive integers <m>n, n+1, n+2</m>, at
+            least one is divisible by <m>3</m>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            For sake of a contradiction, assume that none of <m>n</m>,
+            <m>n+1</m>, <m>n+2</m> is divisible by <m>3</m>. Every integer
+            leaves a remainder of <m>0</m>, <m>1</m>, or <m>2</m> upon
+            division by <m>3</m>; since <m>n</m> is not divisible by
+            <m>3</m>, either <m>n</m> leaves remainder <m>1</m> or
+            remainder <m>2</m>.
+          </p>
+          <p>
+            <ul>
+              <li>If <m>n</m> leaves remainder <m>1</m>, then <m>n + 2</m>
+              leaves remainder <m>0</m>, so <m>3</m> divides <m>n+2</m>.</li>
+              <li>If <m>n</m> leaves remainder <m>2</m>, then <m>n + 1</m>
+              leaves remainder <m>0</m>, so <m>3</m> divides <m>n+1</m>.</li>
+            </ul>
+          </p>
+          <p>
+            Either way, one of <m>n</m>, <m>n+1</m>, <m>n+2</m> is
+            divisible by <m>3</m>, contradicting our assumption.
+            Therefore, at least one of <m>n, n+1, n+2</m> is divisible by
+            <m>3</m>.
+          </p>
+        </solution>
+      </example>
+
+      <note xml:id="note-counterexample">
+        <p>
+          A counterexample to a false statement <m>(\forall x)Q(x)</m> is
+          exactly a proof of <m>(\exists x)(\neg Q(x))</m>, so it can be
+          produced by following <xref ref="assemblage-exists-direct" text="title"/>.
+          Also, several of these skeleton proofs are sometimes combined in
+          a single proof: for instance, to prove
+          <m>(\forall x)(P(x) \implies Q(x))</m> by contradiction, you
+          would begin by assuming that there exists <m>x \in U</m> such
+          that <m>P(x)</m> and <m>\neg Q(x)</m>.
+        </p>
+      </note>
+    </section>
+
+  </article>
+
+</pretext>
