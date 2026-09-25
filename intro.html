@@ -19,6 +19,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<style>
+@counter-style ptx-marker-1 { system: extends lower-roman; prefix: '('; suffix: ') '; }
+</style>
 <script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
 startMathJax({
 hasWebworkReps: false,
@@ -138,10 +141,11 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-contradiction.html" class="internal"><span class="codenumber">3</span> <span class="title">Proof by Contradiction</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-biconditionals.html" class="internal"><span class="codenumber">4</span> <span class="title">Proving Biconditionals</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-quantified.html" class="internal"><span class="codenumber">5</span> <span class="title">Quantified Statements</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-induction.html" class="internal"><span class="codenumber">6</span> <span class="title">Proof by Induction</span></a></div></li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content">
 <section class="introduction" id="intro"><h1 class="heading">Introduction</h1>
-<div class="para" id="intro-1">Adapted, with modifications, from Dana C. Ernst’s <em class="emphasis">An Introduction to Proof via Inquiry-Based Learning</em> (<a class="external" href="https://github.com/dcernst/IBL-IntroToProof" target="_blank">github.com/dcernst/IBL-IntroToProof</a>), Skeleton Proofs 2.48, 2.49, 2.53, 2.54, 2.81–2.85, © Dana C. Ernst. The wording and section structure here have been modified from the original. Ernst’s text is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License (<a class="external" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">creativecommons.org/licenses/by-sa/4.0</a>), and, per the terms of that license, so is this derivative document.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#intro-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="intro-1">Adapted, with modifications, from Dana C. Ernst’s <em class="emphasis">An Introduction to Proof via Inquiry-Based Learning</em> (<a class="external" href="https://github.com/dcernst/IBL-IntroToProof" target="_blank">github.com/dcernst/IBL-IntroToProof</a>), Skeleton Proofs 2.48, 2.49, 2.53, 2.54, 2.81–2.85, 4.3, 4.10, 4.26, © Dana C. Ernst. The wording and section structure here have been modified from the original. Ernst’s text is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License (<a class="external" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">creativecommons.org/licenses/by-sa/4.0</a>), and, per the terms of that license, so is this derivative document.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#intro-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="intro-2">The skeleton proofs below give the basic structure of the most common proof strategies for a conditional statement <span class="process-math">\(A \implies B\)</span> (or a more general statement <span class="process-math">\(P\)</span>), together with the quantified versions you will use most often. Filling in a skeleton is not, by itself, a proof—the middle of each proof is where the actual mathematical argument goes— but recognizing which skeleton you are filling in will help you organize your writing and will make it easier for a reader to follow your argument.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#intro-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></section>

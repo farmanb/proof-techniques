@@ -197,6 +197,69 @@ var ptx_lunr_docs = [
   "number": "5.6",
   "title": "",
   "body": " A counterexample to a false statement is exactly a proof of , so it can be produced by following . Also, several of these skeleton proofs are sometimes combined in a single proof: for instance, to prove by contradiction, you would begin by assuming that there exists such that and .  "
+},
+{
+  "id": "sec-induction",
+  "level": "1",
+  "url": "sec-induction.html",
+  "type": "Section",
+  "number": "6",
+  "title": "Proof by Induction",
+  "body": " Proof by Induction   Mathematical induction is a proof technique for statements of the form , or more generally , where is some predicate and . The Principle of Mathematical Induction says that if is true, and for all , implies , then is true for all . Verifying the first hypothesis is called the base step (or base case ), and verifying the second is called the inductive step . Note that the inductive step is itself a proof of a quantified conditional, so inside it you are filling in .   Proof of by Induction  Here is the general structure for a proof by induction.  [State any upfront assumptions.] We proceed by induction.     Base step: [Verify that is true. This often, but not always, amounts to plugging into two sides of some claimed equation and verifying that both sides are actually equal.]     Inductive step: [Your goal is to prove For all , if is true, then is true. ] Let and assume that is true. [Do something to derive that is true.] Therefore, is true.     Thus, by induction, is true for all .     For all , divides .    We proceed by induction.     Base step: When , , which is divisible by .    Inductive step: Let and assume that divides . By definition, there is an integer such that . Then     Since , it follows that divides .     Thus, by induction, divides for all .    The base case need not be . To prove that holds for all integers , verify in the base step and take in the inductive step.   Proof of by Induction  Here is the general structure for a proof by induction when the base case does not necessarily involve .  [State any upfront assumptions.] We proceed by induction.     Base step: [Verify that is true.]     Inductive step: [Your goal is to prove For all , if is true, then is true. ] Let be an integer and assume that is true. [Do something to derive that is true.] Therefore, is true.     Thus, by induction, is true for all integers .     For all integers , .    We proceed by induction.     Base step: When , .    Inductive step: Let be an integer and assume that . Then     where the last inequality uses , which holds since . Therefore, .     Thus, by induction, for all integers .    There is another formulation of induction, called complete induction (or strong induction ), in which the inductive step assumes not just but all of . Complete induction is not more powerful than ordinary induction, but it is the right tool when reaching requires more than the single preceding case for instance, when depends on both and . In such situations, you will typically need to verify more than one case in the base step; the number of base cases depends on how far the inductive step looks back.    Proof of by Complete Induction  Here is the general structure for a proof by complete induction.  [State any upfront assumptions.] We proceed by induction.     Base step: [Verify that is true. Depending on the statement, you may also need to verify that is true for other specific values of .]     Inductive step: [Your goal is to prove For all , if is true for all such that , then is true. ] Let . Suppose is true for all . [Do something to derive that is true.] Therefore, is true.     Thus, by complete induction, is true for all .     Define a sequence by , , and for all . Then for all .    We proceed by induction. Since the recurrence for involves both and , we need two base cases.     Base step: and .    Inductive step: Let and suppose for all . Then, since , the recurrence gives     Therefore, .     Thus, by complete induction, for all .     In , the inductive step starts at rather than , because the recurrence only applies once there are two previous terms. The case (that is, ) is covered by the base step instead. Forgetting to check separately is the most common mistake in this kind of argument.   "
+},
+{
+  "id": "sec-induction-2",
+  "level": "2",
+  "url": "sec-induction.html#sec-induction-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Mathematical induction Principle of Mathematical Induction base step base case inductive step "
+},
+{
+  "id": "example-induction",
+  "level": "2",
+  "url": "sec-induction.html#example-induction",
+  "type": "Example",
+  "number": "6.1",
+  "title": "",
+  "body": "  For all , divides .    We proceed by induction.     Base step: When , , which is divisible by .    Inductive step: Let and assume that divides . By definition, there is an integer such that . Then     Since , it follows that divides .     Thus, by induction, divides for all .   "
+},
+{
+  "id": "example-induction-general",
+  "level": "2",
+  "url": "sec-induction.html#example-induction-general",
+  "type": "Example",
+  "number": "6.2",
+  "title": "",
+  "body": "  For all integers , .    We proceed by induction.     Base step: When , .    Inductive step: Let be an integer and assume that . Then     where the last inequality uses , which holds since . Therefore, .     Thus, by induction, for all integers .   "
+},
+{
+  "id": "sec-induction-8",
+  "level": "2",
+  "url": "sec-induction.html#sec-induction-8",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "complete induction strong induction "
+},
+{
+  "id": "example-complete-induction",
+  "level": "2",
+  "url": "sec-induction.html#example-complete-induction",
+  "type": "Example",
+  "number": "6.3",
+  "title": "",
+  "body": "  Define a sequence by , , and for all . Then for all .    We proceed by induction. Since the recurrence for involves both and , we need two base cases.     Base step: and .    Inductive step: Let and suppose for all . Then, since , the recurrence gives     Therefore, .     Thus, by complete induction, for all .   "
+},
+{
+  "id": "note-complete-induction-base",
+  "level": "2",
+  "url": "sec-induction.html#note-complete-induction-base",
+  "type": "Note",
+  "number": "6.4",
+  "title": "",
+  "body": " In , the inductive step starts at rather than , because the recurrence only applies once there are two previous terms. The case (that is, ) is covered by the base step instead. Forgetting to check separately is the most common mistake in this kind of argument.  "
 }
 ]
 
